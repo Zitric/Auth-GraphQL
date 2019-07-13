@@ -54,5 +54,18 @@
     "lint-staged": "^9.2.0",
     "prettier": "^1.18.2",
     "prettier-quick": "0.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run check-code"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }
